@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [flowhw.PrjPcb]
+   Generated File[flowhw.TXT]
+   Generated File[flowhw.LDP]
+   Generated File[flowhw.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 11:35:55 On 12.10.2025

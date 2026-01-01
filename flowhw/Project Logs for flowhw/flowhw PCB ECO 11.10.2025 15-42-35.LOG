@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=EN1 Pin=U8-18
+Removed Pin From Net: NetName=STEP1 Pin=U8-19
+Removed Pin From Net: NetName=FLT Pin=U8-39
+Removed Pin From Net: NetName=EN2 Pin=U8-40
+Removed Pin From Net: NetName=STEP2 Pin=U8-41
+Removed Pin From Net: NetName=LIM1 Pin=U8-43
+Added Pin To Net: NetName=STEP1 Pin=U8-18
+Added Pin To Net: NetName=EN1 Pin=U8-19
+Added Pin To Net: NetName=LIM1 Pin=U8-39
+Added Pin To Net: NetName=STEP2 Pin=U8-40
+Added Pin To Net: NetName=EN2 Pin=U8-41
+Added Pin To Net: NetName=FLT Pin=U8-43

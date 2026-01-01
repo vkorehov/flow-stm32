@@ -1,0 +1,358 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$out
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  deps = gcc
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\dma.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\dma.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\ds18b20.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\ds18b20.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\eeprom.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\eeprom.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\feedforward.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\feedforward.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\flow.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\flow.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\gpio.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\gpio.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\limit.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\limit.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\main.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\main.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\pid.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\pid.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\serial.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\serial.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\stats.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\stats.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\step.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\step.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\stm32f0xx_hal_msp.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\stm32f0xx_hal_msp.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\stm32f0xx_it.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\stm32f0xx_it.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\sw.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\sw.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\tim.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\tim.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\usart.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\Core_13247989168731456611.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\usart.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Core\Src\system_stm32f0xx.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\CMSIS_6603591812247902717.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Core\Src\system_stm32f0xx.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_cortex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_cortex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_dma.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_dma.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_exti.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_exti.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_gpio.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_gpio.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.xcl : COMPILER_XCL 
+    flags = C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart_ex.c -D USE_HAL_DRIVER -D STM32F051x8 -o C$:\HW\flow4\EWARM\flow4\Obj\STM32F0xx_HAL_Driver_12736992878974344111.dir --debug --endian=little --cpu=Cortex-M0 -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\inc\c\DLib_Config_Full.h" -I C$:\HW\flow4\EWARM/../Core/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc\ -I C$:\HW\flow4\EWARM/../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Device/ST/STM32F0xx/Include\ -I C$:\HW\flow4\EWARM/../Drivers/CMSIS/Include\ -Ohs --predef_macros C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.tmp
+    rspfile_name = C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.xcl.rsp
+    xclcommand = -source_file C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart_ex.c -xcl_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.xcl -macro_file C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.2\arm\bin\iccarm.exe"
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.xcl | C$:\HW\flow4\Core\Src\dma.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.xcl | C$:\HW\flow4\Core\Src\ds18b20.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.xcl | C$:\HW\flow4\Core\Src\eeprom.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.xcl | C$:\HW\flow4\Core\Src\feedforward.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.xcl | C$:\HW\flow4\Core\Src\flow.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.xcl | C$:\HW\flow4\Core\Src\gpio.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.xcl | C$:\HW\flow4\Core\Src\limit.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.xcl | C$:\HW\flow4\Core\Src\main.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.xcl | C$:\HW\flow4\Core\Src\pid.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.xcl | C$:\HW\flow4\Core\Src\serial.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.xcl | C$:\HW\flow4\Core\Src\stats.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.xcl | C$:\HW\flow4\Core\Src\step.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.xcl | C$:\HW\flow4\Core\Src\stm32f0xx_hal_msp.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.xcl | C$:\HW\flow4\Core\Src\stm32f0xx_it.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.xcl | C$:\HW\flow4\Core\Src\sw.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.xcl | C$:\HW\flow4\Core\Src\tim.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.xcl | C$:\HW\flow4\Core\Src\usart.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.xcl | C$:\HW\flow4\Core\Src\system_stm32f0xx.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_cortex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_dma.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_exti.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_flash_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_gpio.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_i2c_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_rcc_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_tim_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.pbi : INDEXER C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.xcl | C$:\HW\flow4\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_uart_ex.c
+    flags = -out=C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.pbi -f C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.xcl
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbw : MAKEBROWSE C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbd
+    flags = C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbd -output C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbw
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part0.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part0.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\dma.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\feedforward.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\flow.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\gpio.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part1.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part1.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\limit.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\main.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\pid.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\serial.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stats.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\step.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part2.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part2.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_hal_msp.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\stm32f0xx_it.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\sw.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\tim.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\usart.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\CMSIS_6603591812247902717.dir\system_stm32f0xx.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part3.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part3.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_cortex.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_dma.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_exti.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_flash_ex.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part4.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part4.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_gpio.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_i2c_ex.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_pwr_ex.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part5.pbi : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part5.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_rcc_ex.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_tim_ex.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\STM32F0xx_HAL_Driver_12736992878974344111.dir\stm32f0xx_hal_uart_ex.pbi
+
+build C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbd : PDBLINK C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part0.pbi | C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part1.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part2.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part3.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part4.pbi $
+ C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part5.pbi
+    flags = -M C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4.pbd C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part0.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part1.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part2.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part3.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part4.pbi C$:\HW\flow4\EWARM\flow4\BrowseInfo\flow4_part5.pbi
+
