@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow4\EWARM\settings\flow4.flow4.general.xcl" --backend -f "C:\HW\flow4\EWARM\settings\flow4.flow4.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.general.xcl" --backend -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.driver.xcl" 
 }
 else
 {
-& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow4\EWARM\settings\flow4.flow4.general.xcl" --debug_file=$debugfile --backend -f "C:\HW\flow4\EWARM\settings\flow4.flow4.driver.xcl" 
+& "C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.general.xcl" --debug_file=$debugfile --backend -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.driver.xcl" 
 }

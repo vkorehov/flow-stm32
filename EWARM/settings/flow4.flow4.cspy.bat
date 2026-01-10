@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow4\EWARM\settings\flow4.flow4.general.xcl" --backend -f "C:\HW\flow4\EWARM\settings\flow4.flow4.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.general.xcl" --backend -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow4\EWARM\settings\flow4.flow4.general.xcl" "--debug_file=%~1" --backend -f "C:\HW\flow4\EWARM\settings\flow4.flow4.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.2\common\bin\cspybat" -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.general.xcl" "--debug_file=%~1" --backend -f "C:\HW\flow-stm32\EWARM\settings\flow4.flow4.driver.xcl" 
 
 @echo off 
 :end

@@ -1,13 +1,15 @@
-C:\HW\flow-stm32\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi: \
-  C:\HW\flow-stm32\Core\Src\eeprom.c \
-  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\stdio.h \
+C:\HW\flow-stm32\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\ds18b20.pbi: \
+  C:\HW\flow-stm32\Core\Src\ds18b20.c \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\string.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\ycheck.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\yvals.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Defaults.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Config_Full.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Product.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\ysizet.h \
-  C:\HW\flow-stm32\EWARM\..\Core\Inc\eeprom.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\DLib_Product_string.h \
+  C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.2\arm\inc\c\stdio.h \
+  C:\HW\flow-stm32\EWARM\..\Core\Inc\ds18b20.h \
   C:\HW\flow-stm32\EWARM\..\Core\Inc\main.h \
   C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal.h \
   C:\HW\flow-stm32\EWARM\..\Core\Inc\stm32f0xx_hal_conf.h \
@@ -40,4 +42,5 @@ C:\HW\flow-stm32\EWARM\flow4\BrowseInfo\Core_13247989168731456611.dir\eeprom.pbi
   C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_tim.h \
   C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_tim_ex.h \
   C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_uart.h \
-  C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_uart_ex.h
+  C:\HW\flow-stm32\EWARM\..\Drivers\STM32F0xx_HAL_Driver\Inc\stm32f0xx_hal_uart_ex.h \
+  C:\HW\flow-stm32\EWARM\..\Core\Inc\limit.h

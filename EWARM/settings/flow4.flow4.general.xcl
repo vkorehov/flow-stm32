@@ -2,7 +2,7 @@
 
 "C:\Program Files\IAR Systems\Embedded Workbench 9.2\arm\bin\armSTLINK.dll" 
 
-"C:\HW\flow4\EWARM\flow4\Exe\flow4.out" 
+"C:\HW\flow-stm32\EWARM\flow4\Exe\flow4.out" 
 
 --plugin="C:\Program Files\IAR Systems\Embedded Workbench 9.2\arm\bin\armLibSupportUniversal.dll" 
 
