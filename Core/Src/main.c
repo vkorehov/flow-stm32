@@ -24,6 +24,7 @@
 #include "main.h"
 #include "eeprom.h"
 #include "dma.h"
+#include "adc.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -36,6 +37,7 @@
 #include "serial.h"
 #include "feedforward.h"
 #include "stats.h"
+#include "leak.h"
 
 #define CMD_IDLE 0xff
 
@@ -194,6 +196,8 @@ int main(void)
   MX_TIM15_Init();
   MX_TIM16_Init();
   MX_TIM17_Init();
+  MX_ADC_Init();
+  
   if (HAL_TIM_Base_Start(&htim3) != HAL_OK)
   {
     Error_Handler(__FILE__,__LINE__);
@@ -230,6 +234,7 @@ int main(void)
   FF_Init(&hot_ff_state);
 
   STATS_Init(&main_stats); 
+  LEAK_Init(&leak);
   
   snprintf(msg, sizeof(msg), "FLOW: BOOTED");
   SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));  
@@ -515,6 +520,10 @@ int main(void)
         snprintf(msg, sizeof(msg), "GETTEMP: OK temp=%u temp_c=%u", main_stats.current_temperature, main_stats.current_temperature/16);
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         break;
+      case 13: // get leak value 0..4096
+        snprintf(msg, sizeof(msg), "GETLEAK: OK value=%u", LEAK_Get(&leak));
+        SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
+        break;
       case 55:
         // call reset
         snprintf(msg, sizeof(msg), "RESET: OK crashed=0");
@@ -614,6 +623,8 @@ int main(void)
         SW_DumpState(&shower1_sw, msg, sizeof(msg));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         SW_DumpState(&shower2_sw, msg, sizeof(msg));
+        SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
+        LEAK_DumpState(&leak, msg, sizeof(msg));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
         snprintf(msg, sizeof(msg), "DUMP: OK");
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
@@ -727,6 +738,8 @@ void Error_Handler(const char *file, int line)
     SW_DumpState(&hot_sw, msg, sizeof(msg));
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
     SW_DumpState(&shower1_sw, msg, sizeof(msg));
+    SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
+    LEAK_DumpState(&leak, msg, sizeof(msg));
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
     SW_DumpState(&shower2_sw, msg, sizeof(msg));
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));    
