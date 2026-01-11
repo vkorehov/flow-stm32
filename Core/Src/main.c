@@ -520,7 +520,7 @@ int main(void)
         snprintf(msg, sizeof(msg), "GETTEMP: OK temp=%u temp_c=%u", main_stats.current_temperature, main_stats.current_temperature/16);
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         break;
-      case 13: // get leak value 0..4096
+      case 13: // get leak value 0..4095 >4000 no leak, 1800...2200 water touching sensor
         snprintf(msg, sizeof(msg), "GETLEAK: OK value=%u", LEAK_Get(&leak));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         break;

@@ -9,7 +9,7 @@ extern "C" {
 #include "main.h"
 
 typedef struct {
-    uint16_t value;    
+    volatile uint16_t value;    
 } Leak_t;
 
 extern Leak_t leak;
