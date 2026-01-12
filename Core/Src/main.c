@@ -63,6 +63,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     SW_Tick(&hot_sw); //0.005s
     SW_Tick(&shower1_sw); //0.005s
     SW_Tick(&shower2_sw); //0.005s
+    SW_Tick(&shower3_sw); //0.005s
     
     STEPPER_FltCheckTick(); //0.005s
     LIMITS_Tick(&cold_valve_limits_state); //0.005s
@@ -265,13 +266,22 @@ int main(void)
         SW_Off(&cold_sw);
         SW_Off(&hot_sw);
         // allow to turn off valve, because water is not compressable!
-        if (cmd.param2 == 0x00) {
+        switch(cmd.param2) {
+        case 0:
           SW_On(&shower1_sw);
           SW_Off(&shower2_sw);
-        }
-        if (cmd.param2 == 0x01) {
+          SW_Off(&shower3_sw);          
+          break;
+        case 1:
           SW_Off(&shower1_sw);
           SW_On(&shower2_sw);
+          SW_Off(&shower3_sw);                    
+          break;
+        case 2:
+          SW_Off(&shower1_sw);
+          SW_Off(&shower2_sw);
+          SW_On(&shower3_sw);                    
+          break;
         }
         PID_Disable(&cold_valve_pid, 0);
         PID_Disable(&hot_valve_pid, 0);
@@ -282,6 +292,7 @@ int main(void)
         while(!STEPPER_Homed(&cold_valve) || !STEPPER_Homed(&hot_valve)) {}
         SW_Off(&shower1_sw);
         SW_Off(&shower2_sw);        
+        SW_Off(&shower3_sw);                
         snprintf(msg, sizeof(msg), "NOFLOW: OK");
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         break;
@@ -296,10 +307,17 @@ int main(void)
         case 0:
           SW_On(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_Off(&shower3_sw);          
           break;
         case 1:
-          SW_On(&shower1_sw);
+          SW_Off(&shower1_sw);
+          SW_On(&shower2_sw);
+          SW_Off(&shower3_sw);                    
+          break;
+        case 2:
+          SW_Off(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_On(&shower3_sw);                    
           break;
         }
         if (cmd.param4 == 1) { // clear history and force use PID
@@ -333,6 +351,7 @@ int main(void)
             SW_Off(&hot_sw);
             SW_Off(&shower1_sw);
             SW_Off(&shower2_sw);
+            SW_Off(&shower3_sw);
             PID_Disable(&cold_valve_pid, 0);
             PID_Disable(&hot_valve_pid, 0);
           }
@@ -357,11 +376,18 @@ int main(void)
         case 0:
           SW_On(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_Off(&shower3_sw);          
           break;
         case 1:
-          SW_On(&shower1_sw);
-          SW_Off(&shower2_sw);
+          SW_Off(&shower1_sw);
+          SW_On(&shower2_sw);
+          SW_Off(&shower3_sw);
           break;
+        case 2:
+          SW_Off(&shower1_sw);
+          SW_Off(&shower2_sw);
+          SW_On(&shower3_sw);
+          break;          
         }
         if (cmd.param6 == 1) { // clear history and force use PID
             FF_Clear(&cold_ff_state);
@@ -394,6 +420,7 @@ int main(void)
             SW_Off(&hot_sw);
             SW_Off(&shower1_sw);
             SW_Off(&shower2_sw);
+            SW_Off(&shower3_sw);
             PID_Disable(&cold_valve_pid, 0);
             PID_Disable(&hot_valve_pid, 0);
             break;
@@ -427,6 +454,7 @@ int main(void)
           SW_Off(&hot_sw);
           SW_Off(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_Off(&shower3_sw);
           PID_Disable(&cold_valve_pid, 0);
           PID_Disable(&hot_valve_pid, 0);
         }
@@ -436,6 +464,7 @@ int main(void)
         SW_Off(&hot_sw);        
         SW_Off(&shower1_sw);
         SW_Off(&shower2_sw);        
+        SW_Off(&shower3_sw);                
         target_flow_cold = ((uint16_t)cmd.param1 << 8) | cmd.param2; // cold water flow baseline        
         target_temp = ((uint16_t)cmd.param3 << 8) | cmd.param4;
         STATS_SetTargetTemp(&main_stats, 0); // we don't correct max temp because this flow is problematic and inprecise!
@@ -479,10 +508,17 @@ int main(void)
         case 0:
           SW_On(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_Off(&shower3_sw);
           break;
         case 1:
-          SW_On(&shower1_sw);
+          SW_Off(&shower1_sw);
+          SW_On(&shower2_sw);
+          SW_Off(&shower3_sw);
+          break;
+        case 2:
+          SW_Off(&shower1_sw);
           SW_Off(&shower2_sw);
+          SW_On(&shower3_sw);
           break;
         }
         PID_Disable(&cold_valve_pid, 0);
@@ -538,6 +574,7 @@ int main(void)
         SW_Off(&hot_sw);
         SW_Off(&shower1_sw);
         SW_Off(&shower2_sw);
+        SW_Off(&shower3_sw);
         PID_Disable(&cold_valve_pid, 0);
         PID_Disable(&hot_valve_pid, 0);
         snprintf(msg, sizeof(msg), "CLEANUP: STARTED");
@@ -572,6 +609,7 @@ int main(void)
         SW_Off(&hot_sw);
         SW_Off(&shower1_sw);
         SW_Off(&shower2_sw);
+        SW_Off(&shower3_sw);        
         PID_Disable(&cold_valve_pid, 0);
         PID_Disable(&hot_valve_pid, 0);      
         snprintf(msg, sizeof(msg), "CALIBRATION: STARTED");
@@ -623,6 +661,8 @@ int main(void)
         SW_DumpState(&shower1_sw, msg, sizeof(msg));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));
         SW_DumpState(&shower2_sw, msg, sizeof(msg));
+        SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
+        SW_DumpState(&shower3_sw, msg, sizeof(msg));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
         LEAK_DumpState(&leak, msg, sizeof(msg));
         SERIAL_TransmitNow((uint8_t*)msg, strlen(msg));      
@@ -690,6 +730,7 @@ void Error_Handler(const char *file, int line)
   SW_Off(&hot_sw);
   SW_Off(&shower1_sw);
   SW_Off(&shower2_sw);
+  SW_Off(&shower3_sw);  
   STEPPER_Disable(&cold_valve);
   STEPPER_Disable(&hot_valve);
   
@@ -739,10 +780,12 @@ void Error_Handler(const char *file, int line)
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
     SW_DumpState(&shower1_sw, msg, sizeof(msg));
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
-    LEAK_DumpState(&leak, msg, sizeof(msg));
-    SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
     SW_DumpState(&shower2_sw, msg, sizeof(msg));
     SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));    
+    SW_DumpState(&shower3_sw, msg, sizeof(msg));
+    SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));    
+    LEAK_DumpState(&leak, msg, sizeof(msg));
+    SERIAL_LL_TransmitNow((uint8_t*)msg, strlen(msg));
   }
 }
 

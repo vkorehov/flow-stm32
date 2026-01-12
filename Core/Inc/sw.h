@@ -21,6 +21,7 @@ extern SW_t cold_sw;
 extern SW_t hot_sw;
 extern SW_t shower1_sw;
 extern SW_t shower2_sw;
+extern SW_t shower3_sw;
 
 void SW_DumpState(SW_t* s, char* buff, int len);
 void SW_Tick(SW_t* sw);

@@ -49,6 +49,14 @@ SW_t shower2_sw = {
   .state = 0,
   .ticks = 0,  
 };
+SW_t shower3_sw = {
+  .pin_sense = GPIO_PIN_13,
+  .port_sense = GPIOB,
+  .pin_sw = GPIO_PIN_12,
+  .port_sw = GPIOB,
+  .state = 0,
+  .ticks = 0,  
+};
 
 void SW_DumpState(SW_t* s, char* buff, int len) {
     snprintf(buff, len,
